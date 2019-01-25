@@ -61,12 +61,16 @@ class KnowledgeBase(object):
         output = ListOfBindings()
         binds = None
 
+        """check to see foreach item in facts: new_fact = self.fact[i]"""
+        """if there exists fact, there is a binding, add to list of bindings""" 
         for i in self.facts:
             status = match(i.statement, fact.statement)
             if (status != False):
                 binds = status
+                """add_bindings in logical_classes for ListOfBindings"""
                 output.add_bindings(binds, fact)
 
+        """len defined in logical_classes.py"""
         if len(output) == 0:
             return False
         
